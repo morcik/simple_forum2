@@ -2,6 +2,16 @@ class TopicsController < ApplicationController
 	def new
 	end
 	def create
-		render text:params[:topic].inspect
+		@topic = Topic.new(params[:topic])
+
+		@topic.save
+		redirect_to @topic
 	end
+	def show
+		@topic = Topic.find(params[:id])
+	end 
+
+
+ 
+
 end
